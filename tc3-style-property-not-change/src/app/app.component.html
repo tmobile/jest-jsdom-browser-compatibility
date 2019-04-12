@@ -1,0 +1,10 @@
+<div id="app">
+  <div class="box" style="margin-top: 100px" #box>
+    <p> I am a box</p>
+    <button (click)="moveBox()" class="button">{{ buttonTitle }}</button>
+  </div>
+  <div class="box2" [style.marginTop]="marginTop" #box2>
+    <p> I am box2</p>
+    <button (click)="moveBox2()" class="button2">{{ buttonTitle2 }}</button>
+  </div>
+ </div>
