@@ -1,0 +1,10 @@
+<div id="app">
+  <h2>Text Encoder</h2>
+  <div class="box">
+    <input type="textarea" [(ngModel)]="raw"  >
+    <div>
+        <button (click)="generate()">encode string</button>
+        <p>{{ encodeString }}</p>
+    </div>
+  </div>
+ </div>

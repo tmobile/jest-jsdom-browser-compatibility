@@ -1,0 +1,10 @@
+<div id="app">
+  <div class="box">
+    <input type="textarea" [(ngModel)]="raw"  >
+    <div>
+        <button (click)="generate()">generate SHA-256</button>
+        <p>{{ sha256 }}</p>
+    </div>
+
+  </div>
+ </div>
