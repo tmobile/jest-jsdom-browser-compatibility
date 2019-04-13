@@ -1,0 +1,17 @@
+#test{
+  color: red;
+  width: 50px;
+  height: 100px;
+}
+#test::before{
+  position: absolute;
+  content: 'sdas';
+  width: 20px;
+  height: 20px;
+}
+#test::after{
+  position: absolute;
+  content: 'sdas';
+  width: 40px;
+  height: 40px;
+}
