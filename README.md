@@ -1,8 +1,12 @@
-# Jest & Karma Test Case Comparison Matrix
+# jest-jsdom-browser-compatibility
+
+This is a matrix of issues and risks of using Jest with JSDOM to test browser applications.  This will include several sub projects with example tests to demonstrate the failures.
+
+## Test Case Comparison Matrix
 
 https://docs.google.com/spreadsheets/d/1BZ6NxHiXU7yRJN50jRyrBWhjghSXiq-s-Rw3xthGTS0/edit?usp=sharing
 
-# Test cases source code
+## Test cases source code
 
 In [testcases-src](testcases-src/)
 
