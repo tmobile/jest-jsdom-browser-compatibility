@@ -2,6 +2,18 @@
 
 This is a matrix of issues and risks of using Jest with JSDOM to test browser applications.  This will include several sub projects with example tests to demonstrate the failures.
 
+## Prerequisite
+
+- Node 8+
+- NPM or yarn
+- Git
+- Safari, Chrome, Firefox
+
+## How to run each test case
+
+1. Click the link in the following comparison matrix to see the source code of each test case.
+2. Follow the README of the test case source code to run the test.
+
 ## Test Case Comparison Matrix
 
 |  Test Case  |    Description    |   Jest (JSDOM)   |   Karma (Chrome)   |    Karma (Safari)   |    Karma (Firefox)   |    References   |
