@@ -1,0 +1,129 @@
+# Test Case: JSDOM dosn't support queueMicrotask API
+
+## Topcoder handle
+
+oa414
+
+## Test Case Code
+
+provided in gitlab issue.
+
+## Your document content (required)
+
+### How to run test
+
+#### Prerequisites
+
+1. Node 8+
+2. NPM or yarn
+3. Git
+4. Safari, Chrome, Firefox
+
+#### Run Test on Karma
+
+```bash
+cd YOUR_CODE_DIR
+git checkout master
+npm install # or 'yarn' if your prefer
+ng test
+```
+
+#### Run Test on Jest
+
+change the line in `angular.json`:
+
+```javascript
+"projects": {
+    ...
+      ...
+         ...
+         "architect": {
+                ...
+                "test": {
+                          // repleace this line
+                          "builder": "@angular-devkit/build-angular:karma",
+                          // whith this:
+                          "builder": "@angular-builders/jest:run",
+
+```
+
+then run test:
+
+```bash
+ng test
+```
+
+### Browser have tested
+
+Chrome, Safari, Firefox
+
+### Test Result
+
+| Browser                             | Result  |
+| ----------------------------------- | ------- |
+| Chrome 72.0.3626 (Mac OS X 10.13.4) | success |
+| Safari 11.1.0 (Mac OS X 10.13.4)    | success |
+| Firefox 65.0.0 (Mac OS X 10.13.0)   | success |
+
+## Positive result on Jest
+
+```javascript
+
+ FAIL  src/app/app.component.spec.ts
+  AppComponent
+    ✕ should create app (695ms)
+
+  ● AppComponent › should create app
+
+    ReferenceError: fetch is not defined
+
+       8 | export class AppComponent implements OnInit {
+       9 |   ngOnInit() {
+    > 10 |     fetch("/api")
+         |     ^
+      11 |       .then(data => {
+      12 |         return data.json();
+      13 |       })
+
+      at AppComponent.Object.<anonymous>.AppComponent.ngOnInit (src/app/app.component.ts:10:5)
+      at checkAndUpdateDirectiveInline (../packages/core/src/view/provider.ts:212:15)
+      at checkAndUpdateNodeInline (../packages/core/src/view/view.ts:429:14)
+      at checkAndUpdateNode (../packages/core/src/view/view.ts:389:12)
+      at debugCheckAndUpdateNode (../packages/core/src/view/services.ts:430:44)
+      at debugCheckDirectivesFn (../packages/core/src/view/services.ts:391:7)
+      at Object.eval [as updateDirectives] (ng:/DynamicTestModule/AppComponent_Host.ngfactory.js:8:5)
+      at Object.debugUpdateDirectives [as updateDirectives] (../packages/core/src/view/services.ts:385:19)
+      at checkAndUpdateView (../packages/core/src/view/view.ts:359:12)
+      at callWithDebugContext (../packages/core/src/view/services.ts:629:23)
+      at Object.debugCheckAndUpdateView [as checkAndUpdateView] (../packages/core/src/view/services.ts:346:10)
+      at ViewRef_.detectChanges (../packages/core/src/view/refs.ts:261:16)
+      at ComponentFixture._tick (../../packages/core/testing/src/component_fixture.ts:107:28)
+      at ../../packages/core/testing/src/component_fixture.ts:120:36
+      at ZoneDelegate.Object.<anonymous>.ZoneDelegate.invoke (node_modules/zone.js/dist/zone.js:391:26)
+      at AsyncTestZoneSpec.Object.<anonymous>.AsyncTestZoneSpec.onInvoke (node_modules/zone.js/dist/async-test.js:106:39)
+      at ProxyZoneSpec.Object.<anonymous>.ProxyZoneSpec.onInvoke (node_modules/zone.js/dist/proxy.js:126:39)
+      at ZoneDelegate.Object.<anonymous>.ZoneDelegate.invoke (node_modules/zone.js/dist/zone.js:390:52)
+      at Object.onInvoke (../packages/core/src/zone/ng_zone.ts:273:25)
+      at ZoneDelegate.Object.<anonymous>.ZoneDelegate.invoke (node_modules/zone.js/dist/zone.js:390:52)
+      at Zone.Object.<anonymous>.Zone.run (node_modules/zone.js/dist/zone.js:150:43)
+      at NgZone.run (../packages/core/src/zone/ng_zone.ts:171:50)
+      at ComponentFixture.detectChanges (../../packages/core/testing/src/component_fixture.ts:120:19)
+      at src/app/app.component.spec.ts:21:13
+      at ZoneDelegate.Object.<anonymous>.ZoneDelegate.invoke (node_modules/zone.js/dist/zone.js:391:26)
+      at AsyncTestZoneSpec.Object.<anonymous>.AsyncTestZoneSpec.onInvoke (node_modules/zone.js/dist/async-test.js:106:39)
+      at ProxyZoneSpec.Object.<anonymous>.ProxyZoneSpec.onInvoke (node_modules/zone.js/dist/proxy.js:126:39)
+      at ZoneDelegate.Object.<anonymous>.ZoneDelegate.invoke (node_modules/zone.js/dist/zone.js:390:52)
+      at Zone.Object.<anonymous>.Zone.runGuarded (node_modules/zone.js/dist/zone.js:161:47)
+      at runInTestZone (node_modules/zone.js/dist/async-test.js:234:29)
+      at node_modules/zone.js/dist/async-test.js:168:17
+      at ZoneDelegate.Object.<anonymous>.ZoneDelegate.invoke (node_modules/zone.js/dist/zone.js:391:26)
+      at ProxyZoneSpec.Object.<anonymous>.ProxyZoneSpec.onInvoke (node_modules/zone.js/dist/proxy.js:129:39)
+      at ZoneDelegate.Object.<anonymous>.ZoneDelegate.invoke (node_modules/zone.js/dist/zone.js:390:52)
+      at Zone.Object.<anonymous>.Zone.run (node_modules/zone.js/dist/zone.js:150:43)
+      at Object.testBody.length.done (node_modules/jest-zone-patch/index.js:51:29)
+
+```
+
+It because jsdom doesn't get correct result when invoke getComputedStyle() in some situations.
+
+https://github.com/jsdom/jsdom/issues/2363
