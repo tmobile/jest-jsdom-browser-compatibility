@@ -16,7 +16,7 @@ This is a matrix of issues and risks of using Jest with JSDOM to test browser ap
 
 ## Test Case Comparison Matrix
 
-|  Test Case  |    Description    |   Jest (JSDOM)   |   Karma (Chrome)   |    Karma (Safari)   |    Karma (Firefox)   |    References   |
+|  Test Case  |    Description    |   Jest (JSDOM)   |   Karma (Chrome(R))   |    Karma (Safari(R))   |    Karma (Firefox(R))   |    References   |
 |:------------|:------------------|:----------------:|:------------------:|:-------------------:|:--------------------:|:----------------|
 |[Test case 1](testcases-src/tc1-contenteditable)|In Jest document.activeElement is incorrect after the contenteditable element is focused|:x: Failed|:heavy_check_mark: Successful|:heavy_check_mark: Successful|:heavy_check_mark: Successful|- https://gitlab.com/jest-risk-discovery/test-cases-design/issues/2<br>- https://github.com/jsdom/jsdom/issues/2472|
 |[Test case 2](testcases-src/tc2-selector-not-working-the-same)|In Jest, selector is not working same as in browsers|:x: Failed|:heavy_check_mark: Successful|:heavy_check_mark: Successful|:heavy_check_mark: Successful|- https://gitlab.com/jest-risk-discovery/test-cases-design/issues/3<br>- https://github.com/jsdom/jsdom/issues/2528|
