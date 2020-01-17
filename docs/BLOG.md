@@ -1,4 +1,4 @@
-# Overview
+# Jest JSDOM Browser Compatibility
 
 [Jest](https://jestjs.io/) is a delightful JavaScript Testing Framework with a focus on simplicity. And it is more and more popular because of simple and better engineer producitivity.
 
@@ -15,23 +15,20 @@ Compared to the conventional Javascript test runner [Karma](https://karma-runner
 
 So we want to migrate our tests from Karma + Jasmine to Jest.
 
-However, the headless browser of Jest is not the real browser, it is based on the [JSDOM](https://github.com/jsdom/jsdom), and it has still some compatibility issues. In this project, we explored all the compatibility issues and summarize them as a comparison Matrix. It will be a good reference for anyone who wants to migrate tests to Jest.
+However, the headless browser of Jest is not the real browser, it is based on the [JSDOM](https://github.com/jsdom/jsdom), and it has still some compatibility issues. In this project, we would like to explore all the compatibility issues and summarize them as a comparison Matrix
 
-In this project, we provided 65 test cases, each test case provides a stand-alone in Angular 7 to demonstrate the compatibility issues of JSDOM.
+## The Problem
 
-# Prerequisite
+JSDOM is the core of the headless browser environment of Jest. JSDOM is a pure-JavaScript implementation of many web standards, notably the WHATWG DOM and HTML Standards, for use with Node.js. Generally, JSDOM is albe to emulate enough of a subset features of a real browser. However, some of the features are still not supported by JSDOM and might bring false results of our test.
 
-- Node 8+
-- NPM or yarn
-- Git
-- Safari, Chrome, Firefox
+## The solution
 
-# How to run each test case
+Hence, we want to explore which features are not supported by JSDOM and have compatibility issues. This project is aiming at this. In this project, we provided 65 test cases with sample code in Angular to demonstrate the compatibility issues of JSDOM.
 
-1. Click the link in the following comparison matrix to see the source code of each test case.
-2. Follow the README of the test case source code to run the test.
+The code of each test case is a stand-alone Angular application, you can follow the `README.md` file in the source code of each test case to deploy and run it.
 
-# Test Case Comparison Matrix
+The following comparison matrix shows the details of each test case.
+
 
 |  Test Case  |  Description  |   Jest (JSDOM)  |  Karma (Chrome (R))  |   Karma (Safari (R))  |   Karma (Firefox (R))  |  References   |
 |:-----------|:----------------|:--------------:|:-----------------:|:------------------:|:-------------------:|:---------------|
@@ -101,11 +98,5 @@ In this project, we provided 65 test cases, each test case provides a stand-alon
 |[Test case 64](testcases-src/tc64-not-support-webcomponents-api)|JSDOM doesn't support webcomponents api|:x: Failed|:heavy_check_mark: Successful|:heavy_check_mark: Successful|:heavy_check_mark: Successful|- https://gitlab.com/jest-risk-discovery/test-cases-design/issues/73<br>- https://github.com/jsdom/jsdom/issues/1030<br>- https://developer.mozilla.org/en-US/docs/Web/Web_Components|
 |[Test case 65](testcases-src/tc65-not-implement-HTMLMediaElement.prototype.load)|JSDOM does not implement HTMLMediaElement.prototype.load|:x: Failed|:heavy_check_mark: Successful|:heavy_check_mark: Successful|:heavy_check_mark: Successful|- https://gitlab.com/jest-risk-discovery/test-cases-design/issues/74<br>- https://github.com/jsdom/jsdom/issues/1515|
 
-# License
 
-Percy editor and hydration scripts are open-sourced under Apache 2.0 and is released AS-IS WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND under the terms of Section 7 of the Apache license.
-
-# DISCLAIMER
-
-T-Mobile® has made every reasonable effort to test the code for its intended purpose, as anticipated by T-Mobile®. T-Mobile® further acknowledges that the code may be used on a wide range of platforms and in many different contexts. Accordingly, it is likely that the code will need to be modified. Please have your IT team validate the code prior to any production use.
 
