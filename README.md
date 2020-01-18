@@ -103,7 +103,7 @@ In this project, we provided 65 test cases, each test case provides a stand-alon
 
 # License
 
-Percy editor and hydration scripts are open-sourced under Apache 2.0 and is released AS-IS WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND under the terms of Section 7 of the Apache license.
+Jest JSDOM Browser compability result and all the test case scripts are open-sourced under Apache 2.0 and is released AS-IS WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND under the terms of Section 7 of the Apache license.
 
 # DISCLAIMER
 
