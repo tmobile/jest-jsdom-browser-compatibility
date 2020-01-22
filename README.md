@@ -1,11 +1,11 @@
 # Overview
 
-[Jest](https://jestjs.io/) is a delightful JavaScript Testing Framework with a focus on simplicity. And it is more and more popular because of simple and better engineer producitivity.
+[Jest](https://jestjs.io/) is a delightful JavaScript Testing Framework with a focus on simplicity. And it is more and more popular because of simple and better engineer productivity.
 
 Compared to the conventional Javascript test runner [Karma](https://karma-runner.github.io) + [Jasmine](https://jasmine.github.io/), Jest is much more lightweight and faster. It has the following benifits:
 
 - Headless browser environment: No need to open the real browsers as what Karma does, it saves much more time.
-- Possible to rum multiple tests in parallel: benefit from the lightweight of the headless browser environment.
+- Possible to run multiple tests in parallel: benefit from the lightweight of the headless browser environment.
 - [Snapshot testing](https://jestjs.io/docs/en/snapshot-testing), a useful feature which is not available in Jasmine
 - Easier to use
   - CLI: filter by a filename or test name regex pattern (reducing the need for fdescribe) and rerun tests
